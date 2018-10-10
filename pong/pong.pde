@@ -33,11 +33,11 @@ void setup() {
 
 void draw() {
   background(#E9FF03); //Yellow
+
   //Calcualting "next" ball position
   //Section necessary when calling functions so passing current arguements
   ballX += ballMoveX; //origonally x+1 operation
   ballY += ballMoveY; //origonally x+1 operation
-
 
   //Ball Movement within Pong Table
   if (ballX == width || ballX == 0) {
@@ -46,12 +46,12 @@ void draw() {
   if (ballY == height || ballY == 0) {
     ballMoveY = ballMoveY * (-1);
   }
+
   //Printing Ball
   fill(0); //Black
   ellipse(ballX, ballY, ballDiameter, ballDiameter);
 
-
-//Code to Move Paddles, keyboard and mouseX&Y key variables
+  //Code to Move Paddles, keyboard and mouseX&Y key variables
   //Player 1 Movement
   if (keyPressed == true & key == CODED) { //alternate is void keyPressed(){}, always contains the most recent keyboard key stroke
     if (keyCode == UP) { //KeyCode is used for UP, DOWN, LEFT, and RIGHT; and ALT, CONTROL, and SHIFT
@@ -62,6 +62,7 @@ void draw() {
         player[1] = 0;
       }
     }
+
     if (keyCode == DOWN) {
       if (player[1] + paddle[1] <= height) {
         player[1] += 5; //Review incrementation other than +1
@@ -82,14 +83,14 @@ void draw() {
     player[3] = height - paddle[1] - 1;
   }
   //println (mouseY);
- //Drawing Paddles
+
+  //Drawing Paddles
   fill(#FF00FF); //Purple
-  {
   rect(player[0], player[1], paddle[0], paddle[1]);
   rect(player[2], player[3], paddle[0], paddle[1]);
   fill(0); //Reseting to Black
-//Debugging Ball Position
+
+  //Debugging Ball Position
   //print ("Ball X-Value: " + ballX);
   //println (", Ball Y-Value: " + ballY);
-}
 }
